@@ -1,0 +1,26 @@
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.circle{
+    margin: 0.5em;
+    border-radius: 100%;
+    width: 1em;
+    height: 1em;
+}
+.outline{
+    background-color: none;
+    border: 1px solid var(--primary-color);
+}
+.fill{
+    background-color: var(--primary-color);
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+}
+.padding{
+    padding: var(--spacing);
+}

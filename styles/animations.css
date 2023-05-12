@@ -1,0 +1,6 @@
+.arrow-container{
+    transition: transform 0.1s ease-in-out;
+}
+.arrow-container:hover{
+    transform: scale(1.2);
+}
