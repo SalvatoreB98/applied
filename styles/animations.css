@@ -4,3 +4,12 @@
 .arrow-container:hover{
     transform: scale(1.2);
 }
+.disabled:hover{
+    transform: scale(1);
+}
+.circle{
+    transition: all 0.2s ease-in-out;
+}
+.fill{
+    transform: scale(1.62);
+}

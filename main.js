@@ -3,7 +3,9 @@ import './styles/style.css'
 import './styles/utilities.css'
 import './styles/animations.css'
 import './styles/webkit.css'
+
 import './scripts/carousel'
+import './scripts/smoothScroll'
 let dataArray = []
 getDataFromJson();
 

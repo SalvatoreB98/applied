@@ -5,15 +5,16 @@
 .circle{
     margin: 0.5em;
     border-radius: 100%;
-    width: 1em;
-    height: 1em;
+    width: 0.8em;
+    height: 0.8em;
+    cursor: pointer;
 }
 .outline{
-    background-color: none;
-    border: 1px solid var(--primary-color);
+    background-color: #00000000;
+    border: 1px solid white;
 }
 .fill{
-    background-color: var(--primary-color);
+    background-color: white;
 }
 .left{
     left: 0;
@@ -23,4 +24,14 @@
 }
 .padding{
     padding: var(--spacing);
+}
+.disabled{
+    cursor: auto;
+    opacity: 0.2;
+}
+.mt{
+    margin-top: var(--spacing);
+}
+.mt-2{
+    margin-top: calc(var(--spacing) * 2);
 }

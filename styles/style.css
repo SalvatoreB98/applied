@@ -7,7 +7,14 @@
 a{
   text-decoration: none;
 }
-
+button{
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
 /** MAIN **/
 html {
   font-family: Poppins, Arial, Helvetica, sans-serif ;
@@ -51,31 +58,25 @@ navbar{
   align-items: center;
   width: 100vw;
   position: relative;
-  background-color: var(--secondary-color);
 }
 i[class^="fa"] {
   font-size: 5em;
   filter: drop-shadow(1px 1px 10px black);
 }
 .imgs-container{
-  padding: 2em;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
-.imgs-container > img{
-  width: 100%;
-}
 .image{
+  margin-left: 20px;
   border-radius: 2em;
-  margin-right: 2em;
   display: inline-block;
   width: 90%;
   height: 70vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  filter: drop-shadow(0px 0px 12px #000000);
 }
 .arrow-container{
   z-index: 4;
@@ -94,7 +95,7 @@ i[class^="fa"] {
   right: 0;
   bottom: 0;
   background: #ffffff00;
-  background: linear-gradient(90deg, #ffffff00 0%, #6b67b100 70%, #000000 100%);
+  background: linear-gradient(90deg, #ffffff00 0%, #ffffff00 90%, #000000 100%);
 }
 .imgs-scroller{
   overflow-x: scroll;
