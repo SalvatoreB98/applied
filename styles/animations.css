@@ -7,9 +7,26 @@
 .disabled:hover{
     transform: scale(1);
 }
+.menu-button{
+    transition: all 0.1s ease-in-out;
+}
+.menu-button:hover{
+    background-color: #191c24;
+}
 .circle{
     transition: all 0.2s ease-in-out;
 }
 .fill{
     transform: scale(1.62);
+}
+.mobile-menu{
+    padding: 0;
+    transition: all 0.2s cubic-bezier(.01,.67,.27,.98);
+}
+.expanded{
+    height: 100%;
+    padding-top: 3em;
+}
+.mobile-menu .expanded a{
+    padding: 5em;
 }

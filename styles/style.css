@@ -19,27 +19,19 @@ button{
 html {
   font-family: Poppins, Arial, Helvetica, sans-serif ;
   color: white;
+  scroll-behavior: smooth;
 }
 body{
   background-color: var(--secondary-color);
+  scroll-behavior: smooth;
 }
-navbar{
-  z-index: 10;
-  padding: 1em;
-  width: 100%;
-  background-color: rgb(36, 39, 51);
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  height: 80px;
-}
+
 .container{
-  margin-top: 80px;
+  margin-top: var(--navbar-height);
   padding: 2em;
 }
 .menu-button{
-  padding: 0.5em;
+  padding: 1.6em;
   color: white;
   display: flex;
   justify-content: center;
@@ -59,7 +51,7 @@ navbar{
   width: 100vw;
   position: relative;
 }
-i[class^="fa"] {
+#carousel i[class^="fa"] {
   font-size: 5em;
   filter: drop-shadow(1px 1px 10px black);
 }
@@ -95,10 +87,13 @@ i[class^="fa"] {
   right: 0;
   bottom: 0;
   background: #ffffff00;
-  background: linear-gradient(90deg, #ffffff00 0%, #ffffff00 90%, #000000 100%);
+  background: linear-gradient(90deg, #ffffff00 0%, #ffffff00 90%, var(--secondary-color) 100%);
 }
 .imgs-scroller{
   overflow-x: scroll;
   position: relative;
   scroll-behavior: smooth;
+}
+.circle-container{
+  cursor: pointer;
 }

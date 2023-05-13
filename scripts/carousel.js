@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
     function createDots(){
       let htmlString = ''
       imgArray.forEach((img, i)=>{
-        htmlString += `<button class="circle outline" data-value=${i}></div> `;
+        htmlString += `<button class="circle outline" data-value=${i}></button> `;
       })
       dotsContainer.innerHTML = htmlString;
       const dotsHtmlElementArray = document.querySelectorAll('.dots-container .circle');
@@ -69,7 +69,6 @@ window.addEventListener("load", () => {
           const dotIndex = parseInt(e.target.getAttribute("data-value", 10));
           index = dotIndex;
           indexChange();
-          console.log(index)
           scroll(scroller);
         })
       })

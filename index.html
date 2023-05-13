@@ -19,11 +19,24 @@
         </div>
         <div style="width: 100%;">
           <div class="buttons-container">
-            <a class="menu-button" href="#data">Data</a>
-            <a class="menu-button" href="#carousel">Carousel</a>
+            <a class="menu-button lg" href="#data">Data</a>
+            <a class="menu-button lg" href="#carousel">Carousel</a>
+            <a class="menu-button lg" href="#carousel">Footer</a>
+            <a class="burger menu-button flex-center sm" href="#" ><i class="fa fa-bars" aria-hidden="true"></i></a>
           </div>
         </div>
       </navbar>
+      <div class="mobile-menu sm">
+        <div>
+          <a class="menu-button" href="#data">Data</a>
+        </div>
+        <div>
+          <a class="menu-button" href="#carousel">Carousel</a>
+        </div>
+        <div>
+          <a class="menu-button" href="#footer">Footer</a>
+        </div>
+      </div>
 
       <section class="container">
         <div class="hero">
@@ -49,15 +62,43 @@
             <i class="fa fa-chevron-right" aria-hidden="true"></i> 
           </button>
         </div>
-        <div class="flex dots-container mt">
+        <div class="flex-center dots-container mt">
         </div>
       </div>
 
-      <section class="padding" id="data">
-        <h2>DATA</h2>
-        <div class="paginator">
+      <section id="data">
+
+        <div class="padding">
+          <h2>DATA</h2>
+          <div class="paginator">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti accusantium numquam fugiat laudantium, quaerat ipsam culpa expedita aut tempore non consequatur cum eveniet asperiores, vitae minima eum? Quae, optio eos.
+          </div>
         </div>
+
+        <div class="cards-container">
+          <div class="card">
+            <div class="card-header">
+              <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="">
+            </div>
+            <div class="card-content">
+              <div class="name mt"> <strong>Autumn Lindsay</strong>  </div>
+              <div class="company"> Candecor  </div>
+              <div class="info">
+                <div> <i class="fa fa-map-marker" aria-hidden="true"></i>  220 Saratoga Avenue, Bath, Puerto Rico, 9900 </div></div>
+            </div>
+            <div class="card-footer">
+              <div>
+                <button class="contact-button secondary">Email</button>
+              </div>
+              <div>
+                <button data-tooltip="346041596" class="contact-button primary tooltip-btn">
+                  Chiamami
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </section>
     </div>
 

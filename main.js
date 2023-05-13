@@ -1,11 +1,16 @@
 import './styles/root.css'
 import './styles/style.css'
 import './styles/utilities.css'
-import './styles/animations.css'
 import './styles/webkit.css'
+import './styles/navbar.css'
+import './styles/animations.css'
+import './styles/card.css'
 
 import './scripts/carousel'
 import './scripts/smoothScroll'
+import './scripts/navbar'
+import './scripts/cards'
+
 let dataArray = []
 getDataFromJson();
 
