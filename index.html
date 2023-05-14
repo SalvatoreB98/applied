@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="" href="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vite App</title>
   </head>
   <body>
@@ -62,44 +62,26 @@
             <i class="fa fa-chevron-right" aria-hidden="true"></i> 
           </button>
         </div>
-        <div class="flex-center dots-container mt">
+        <div class="flex-center dots-container padding">
         </div>
       </div>
 
       <section id="data">
-
-        <div class="padding">
-          <h2>DATA</h2>
-          <div class="paginator">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti accusantium numquam fugiat laudantium, quaerat ipsam culpa expedita aut tempore non consequatur cum eveniet asperiores, vitae minima eum? Quae, optio eos.
+        <div class="cards-container"></div>
+        <div class="paginator padding">
+          <div class="flex-center">
+            <div class="paginator-arrow arrow-left"> <i class="fa fa-chevron-left mr-1"></i></div>
+            <div class="indeces-container">
+            </div>
+            <div class="paginator-arrow arrow-right"> <i class="fa fa-chevron-right ml-1"></i></div>
           </div>
         </div>
-
-        <div class="cards-container">
-          <div class="card">
-            <div class="card-header">
-              <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="">
-            </div>
-            <div class="card-content">
-              <div class="name mt"> <strong>Autumn Lindsay</strong>  </div>
-              <div class="company"> Candecor  </div>
-              <div class="info">
-                <div> <i class="fa fa-map-marker" aria-hidden="true"></i>  220 Saratoga Avenue, Bath, Puerto Rico, 9900 </div></div>
-            </div>
-            <div class="card-footer">
-              <div>
-                <button class="contact-button secondary">Email</button>
-              </div>
-              <div>
-                <button data-tooltip="346041596" class="contact-button primary tooltip-btn">
-                  Chiamami
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
       </section>
+      <footer>
+        <div>
+          <p>&copy; 2023 Salvatore Butera. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
 
     <script type="module" src="/main.js"></script>

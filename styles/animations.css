@@ -30,3 +30,20 @@
 .mobile-menu .expanded a{
     padding: 5em;
 }
+.page-index{
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+.page-index.primary{
+    animation: slide 0.1s cubic-bezier(.26,.2,.19,.97) 1 ;
+}
+ /** KEYFRAMES */
+@keyframes slide {
+    0% {
+      transform: translateX(-100px);
+    }
+    
+    100% {
+      transform: translateX(0);
+    }
+  }

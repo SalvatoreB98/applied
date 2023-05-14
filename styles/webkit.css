@@ -2,3 +2,22 @@
     width: 0;
     height: 0;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
+    html {
+      touch-action: manipulation;
+    }
+}
+@viewport {
+    zoom: 1.0 !important;
+    user-zoom: fixed !important;
+    max-zoom: 1.0 !important;
+    min-zoom: 1.0 !important;
+  }
+  
+  /* Optionally, you can disable pinch zooming as well */
+  html {
+    touch-action: manipulation;
+  }
