@@ -116,7 +116,7 @@ select option:hover {
     background-color: #e0e0e0;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .sm{
         display: inline-block;
     }
@@ -124,7 +124,7 @@ select option:hover {
         display: none;
     }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1024px) {
     .sm{
         display: none;
     }

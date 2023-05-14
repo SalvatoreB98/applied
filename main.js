@@ -5,7 +5,6 @@ import './styles/webkit.css'
 import './styles/navbar.css'
 import './styles/animations.css'
 import './styles/card.css'
-import './styles/responsiveness.css'
 
 import './scripts/data'
 import './scripts/carousel'

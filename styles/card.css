@@ -87,8 +87,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+.select-pagination select{
+    margin-top: 1em;
+    background-color: #121419;
 }
 .results{
+    font-weight: 200;
+    font-size: small;
     position: absolute;
     right: 5em;
     top: 1em;
@@ -96,7 +103,7 @@
 }
 
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1024px) {
     .card{
         width: calc(50% - 3em);
     }

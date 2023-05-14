@@ -1,7 +1,7 @@
 import Data from './data'
 const data = new Data()
 data.getDataFromJson().then(((response) => {
-  
+
   /** DECLARATIONS */
   let users = response;
   let pageIndex = 0;
@@ -11,56 +11,51 @@ data.getDataFromJson().then(((response) => {
   const indecesContainerHTML = document.querySelector(".indeces-container")
   const cardsContainer = document.querySelector(".cards-container")
   const selectElement = document.querySelector('select[name="items-page"]')
-
-  /** BODY */
-  window.addEventListener("load", () => {
-    const arrowRight = document.querySelector(".paginator-arrow.arrow-right");
-    const arrowLeft = document.querySelector(".paginator-arrow.arrow-left");
-
-    arrowRight.addEventListener("click", () => {
-      if (pageIndex < pages - 1) {
-        pageIndex++;
-        indexChange();
-        addScrollClassForAnimation("scroll-left");
-      }
-    });
-
-    arrowLeft.addEventListener("click", () => {
-      if (pageIndex > 0) {
-        pageIndex--;
-        indexChange();
-        addScrollClassForAnimation("scroll-right");
-      }
-    });
+  const resultsElement = document.querySelector(".results") 
     
-    selectElement.addEventListener("change",(e)=>{
-      itemsPage = parseInt(e.target.value)
-      pageIndex = 0;
-      indexChange();
-    })
-    updatePaginator();
-    updateComponent();
+  /** BODY */
+  const arrowRight = document.querySelector(".paginator-arrow.arrow-right");
+  const arrowLeft = document.querySelector(".paginator-arrow.arrow-left");
 
-  })
 
+
+  indexChange();
+  updatePaginator();
+  updateComponent();
+  events();
 
   /** FUNCTIONS DECLARATION */
   function updatePaginator() {
     pages =  Math.round(results / itemsPage);
     let toInject = ''
     if(data.isMobileDevice()){
-      toInject = `<span class="page-index">${pageIndex}</span>`
+      toInject = `<span class="page-index">${pageIndex + 1}</span>`
     } else{ 
       for (let i = 0; i < pages; i++) {
-        toInject += `<span class="page-index ${i == pageIndex ? 'primary' : ''}">${i + 1}</span>`
+        toInject += `<span data-value=${i} class="page-index ${i == pageIndex ? 'primary' : ''}">${i + 1}</span>`
       }
     }
     indecesContainerHTML.innerHTML = toInject;
+    document.querySelectorAll(".page-index").forEach((page)=>{
+      page.addEventListener("click",(e)=>{
+        const selectedIndex = parseInt(e.target.getAttribute("data-value", 10));
+        const prevIndex = pageIndex
+        pageIndex = selectedIndex;
+        indexChange();
+        if(selectedIndex < prevIndex){
+          addScrollClassForAnimation("scroll-right")
+        } else {
+          addScrollClassForAnimation("scroll-left")
+        }
+      })
+    })
+    renderResults(pageIndex, itemsPage, results);
   }
 
   function updateComponent() {
     let htmlComponents = "";
     let startIndex = pageIndex * itemsPage;
+  
     users.forEach((user, index) => {
       let render = index < itemsPage * (pageIndex == 0 ? 1 : pageIndex + 1) && index >= startIndex;
       if (render) {
@@ -99,16 +94,28 @@ data.getDataFromJson().then(((response) => {
         htmlComponents += htmlComponent;
       }
     });
+  
     cardsContainer.innerHTML = htmlComponents;
     let cardsArray = document.querySelectorAll(".card");
-    cardsArray.forEach(card=>{
-      setTimeout(()=>{
-        card.classList.add("active")
-      },10)
-    })
+  
+    setTimeout(() => {
+      cardsArray.forEach(card => {
+        card.classList.add("active");
+      });
+    }, 10);
   }
 
   function indexChange() {
+    if (pageIndex === 0) {
+      arrowLeft.classList.add('disabled')
+    } else {
+      arrowLeft.classList.remove('disabled')
+    }
+    if(pageIndex >= pages - 1){
+      arrowRight.classList.add('disabled')
+    } else {
+      arrowRight.classList.remove('disabled')
+    }
     updatePaginator();
     updateComponent();
   }
@@ -119,5 +126,33 @@ data.getDataFromJson().then(((response) => {
     })
   }
 
+  function renderResults(pageIndex, itemsPage, results){
+    resultsElement.innerHTML = `${pageIndex * itemsPage } - ${pageIndex * itemsPage + itemsPage} di ${results}`
+  }
+  
+  function events(){
+    arrowRight.addEventListener("click", () => {
+      if (pageIndex < pages - 1) {
+        pageIndex++;
+        indexChange();
+        addScrollClassForAnimation("scroll-left");
+      }
+    });
+  
+    arrowLeft.addEventListener("click", () => {
+      if (pageIndex > 0) {
+        pageIndex--;
+        indexChange();
+        addScrollClassForAnimation("scroll-right");
+      }
+    });
+    
+    selectElement.addEventListener("change",(e)=>{
+      itemsPage = parseInt(e.target.value)
+      pageIndex = 0;
+      indexChange();
+    })
+
+  }
 }));
 
