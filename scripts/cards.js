@@ -1,60 +1,74 @@
 import Data from './data'
 const data = new Data()
-data.getDataFromJson().then(((response)=>{
+data.getDataFromJson().then(((response) => {
   
   /** DECLARATIONS */
   let users = response;
   let pageIndex = 0;
   let results = response.length;
-  let itemsPage = 6;
+  let itemsPage = data.isMobileDevice() ? 1 : 3;
   let pages = results / itemsPage;
-  let indecesContainerHTML = document.querySelector(".indeces-container")
+  const indecesContainerHTML = document.querySelector(".indeces-container")
+  const cardsContainer = document.querySelector(".cards-container")
+  const selectElement = document.querySelector('select[name="items-page"]')
 
   /** BODY */
-  window.addEventListener("load",()=>{
+  window.addEventListener("load", () => {
     const arrowRight = document.querySelector(".paginator-arrow.arrow-right");
     const arrowLeft = document.querySelector(".paginator-arrow.arrow-left");
 
     arrowRight.addEventListener("click", () => {
-      if (pageIndex < pages -1) {
+      if (pageIndex < pages - 1) {
         pageIndex++;
-        console.log(pageIndex);
         indexChange();
+        addScrollClassForAnimation("scroll-left");
       }
     });
 
     arrowLeft.addEventListener("click", () => {
       if (pageIndex > 0) {
         pageIndex--;
-        console.log(pageIndex)
         indexChange();
+        addScrollClassForAnimation("scroll-right");
       }
     });
-
-    updateComponent();
+    
+    selectElement.addEventListener("change",(e)=>{
+      itemsPage = parseInt(e.target.value)
+      pageIndex = 0;
+      indexChange();
+    })
     updatePaginator();
+    updateComponent();
+
   })
 
 
   /** FUNCTIONS DECLARATION */
-  function updatePaginator(){
-    let toInject = '' 
-    for(let i = 0; i < pages; i++){
-      toInject += `<span class="page-index ${i == pageIndex? 'primary' : ''}">${i+1}</span>`
+  function updatePaginator() {
+    pages =  Math.round(results / itemsPage);
+    let toInject = ''
+    if(data.isMobileDevice()){
+      toInject = `<span class="page-index">${pageIndex}</span>`
+    } else{ 
+      for (let i = 0; i < pages; i++) {
+        toInject += `<span class="page-index ${i == pageIndex ? 'primary' : ''}">${i + 1}</span>`
+      }
     }
     indecesContainerHTML.innerHTML = toInject;
   }
 
-  function updateComponent(){
+  function updateComponent() {
     let htmlComponents = "";
-
-    users.forEach((user,index) => {
-      if(index < itemsPage){
+    let startIndex = pageIndex * itemsPage;
+    users.forEach((user, index) => {
+      let render = index < itemsPage * (pageIndex == 0 ? 1 : pageIndex + 1) && index >= startIndex;
+      if (render) {
         let tags = user.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
         let htmlComponent = `
         <div class="card">
           <div class="card-header">
-            <img src="https://randomuser.me/api/portraits/${user.gender=='male'?'men':'women'}/${index}.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/${user.gender == 'male' ? 'men' : 'women'}/${index}.jpg" alt="">
           </div>
           <div class="card-content">
             <div class="name"> <strong>${user.name}</strong>  </div>
@@ -84,13 +98,26 @@ data.getDataFromJson().then(((response)=>{
         </div>`;
         htmlComponents += htmlComponent;
       }
-      document.querySelector(".cards-container").innerHTML = htmlComponents;
     });
+    cardsContainer.innerHTML = htmlComponents;
+    let cardsArray = document.querySelectorAll(".card");
+    cardsArray.forEach(card=>{
+      setTimeout(()=>{
+        card.classList.add("active")
+      },10)
+    })
   }
 
-  function indexChange(){
+  function indexChange() {
     updatePaginator();
     updateComponent();
   }
+
+  function addScrollClassForAnimation(scrollClass){
+    document.querySelectorAll(".card").forEach(card=>{
+      card.classList.add(scrollClass)
+    })
+  }
+
 }));
 

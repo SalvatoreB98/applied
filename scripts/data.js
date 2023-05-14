@@ -9,6 +9,10 @@ export default class Data {
             // Handle any errors
             console.error('Error:', error);
           });
-      }
+    }
+    isMobileDevice() {
+      const mobileWidthThreshold = 768; // Adjust this threshold value as needed
+      return window.innerWidth < mobileWidthThreshold;
+    }
 } 
 
