@@ -8,6 +8,5 @@ import './styles/card.css'
 
 import './scripts/data'
 import './scripts/carousel'
-import './scripts/smoothScroll'
 import './scripts/navbar'
 import './scripts/cards'

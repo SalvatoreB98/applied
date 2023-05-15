@@ -12,6 +12,7 @@
     "vite": "^4.3.2"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.12",
     "smooth-scroll": "^16.1.3"
   }
 }
