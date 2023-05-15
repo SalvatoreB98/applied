@@ -11,7 +11,7 @@
     transition: all 0.1s ease-in-out;
 }
 .menu-button:hover{
-    background-color: #191c24;
+    background-color: #121419;
 }
 .circle{
     transition: all 0.2s ease-in-out;
@@ -30,26 +30,41 @@
 .mobile-menu .expanded a{
     padding: 5em;
 }
-.page-index{
-    display: inline-block;
-    transition: all 0.3s ease-in-out;
-}
 .page-index.primary{
     animation: bounce 0.3s cubic-bezier(.26,.2,.19,.97) 1 ;
 }
 .card{
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0,.4,.28,.99);
+    
+    transition: all 0.5s cubic-bezier(.43,.02,.33,.98);
 }
 .scroll-left{
+    opacity: 0;
     transform: translateX(400px);
 }
 .scroll-right{
+    opacity: 0;
     transform: translateX(-400px);
 }
 .card.active{
     opacity: 1;
     transform: translateX(0);
+}
+footer a{
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+footer a:hover{
+    transform: scale(1.2);
+}
+.page-index, .arrow-right, .arrow-left, circle{
+    display: inline-block;
+    transition: all 0.2s ease-out;
+}
+.page-index:hover, .arrow-right:hover, .arrow-left:hover, .circle:hover{
+    transform: scale(1.6);
+}
+.page-index.primary:hover{
+    transform: scale(1);
 }
  /** KEYFRAMES */
 @keyframes bounce {
@@ -61,5 +76,5 @@
     }
     100% {
       transform: scale(1);
-    }
-  }
+    } 
+}

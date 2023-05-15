@@ -18,18 +18,21 @@ data.getDataFromJson().then(((response) => {
   const arrowLeft = document.querySelector(".paginator-arrow.arrow-left");
 
 
-
   indexChange();
   updatePaginator();
   updateComponent();
   events();
+  requestAnimationFrame(update);
+
 
   /** FUNCTIONS DECLARATION */
   function updatePaginator() {
+
     pages =  Math.round(results / itemsPage);
+
     let toInject = ''
     if(data.isMobileDevice()){
-      toInject = `<span class="page-index">${pageIndex + 1}</span>`
+      toInject = `<span data-value=${pageIndex} class="page-index">${pageIndex + 1}</span>`
     } else{ 
       for (let i = 0; i < pages; i++) {
         toInject += `<span data-value=${i} class="page-index ${i == pageIndex ? 'primary' : ''}">${i + 1}</span>`
@@ -39,19 +42,21 @@ data.getDataFromJson().then(((response) => {
     document.querySelectorAll(".page-index").forEach((page)=>{
       page.addEventListener("click",(e)=>{
         const selectedIndex = parseInt(e.target.getAttribute("data-value", 10));
-        const prevIndex = pageIndex
-        pageIndex = selectedIndex;
-        indexChange();
-        if(selectedIndex < prevIndex){
-          addScrollClassForAnimation("scroll-right")
-        } else {
-          addScrollClassForAnimation("scroll-left")
+        if(selectedIndex !== pageIndex){
+          const prevIndex = pageIndex
+          pageIndex = selectedIndex;
+          indexChange();
+          if(selectedIndex < prevIndex){
+              addScrollClassForAnimation("scroll-right")
+          } else {
+              addScrollClassForAnimation("scroll-left")
+          }
         }
       })
     })
     renderResults(pageIndex, itemsPage, results);
   }
-
+  
   function updateComponent() {
     let htmlComponents = "";
     let startIndex = pageIndex * itemsPage;
@@ -96,13 +101,14 @@ data.getDataFromJson().then(((response) => {
     });
   
     cardsContainer.innerHTML = htmlComponents;
+    
     let cardsArray = document.querySelectorAll(".card");
-  
+
     setTimeout(() => {
       cardsArray.forEach(card => {
         card.classList.add("active");
       });
-    }, 10);
+    }, 20);
   }
 
   function indexChange() {
@@ -152,7 +158,15 @@ data.getDataFromJson().then(((response) => {
       pageIndex = 0;
       indexChange();
     })
-
   }
+
+  function update() {
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener("resize", (e)=>{
+    updateComponent();
+    updatePaginator();
+  })
 }));
 

@@ -1,23 +1,12 @@
 ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    width: 10px;
+    height: 10px;
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    body {
-      -webkit-text-size-adjust: 100%;
-    }
-    html {
-      touch-action: manipulation;
-    }
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 1em;
 }
-@viewport {
-    zoom: 1.0 !important;
-    user-zoom: fixed !important;
-    max-zoom: 1.0 !important;
-    min-zoom: 1.0 !important;
-  }
-  
-  /* Optionally, you can disable pinch zooming as well */
-  html {
-    touch-action: manipulation;
-  }
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(62, 82, 96);
+}

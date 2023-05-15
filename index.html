@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="" href="" />
+    <link rel="icon" type="" href="/favonico.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vite App</title>
+    <title>Salvatore Butera - Applied</title>
   </head>
   <body>
     <div id="app">
@@ -21,7 +21,7 @@
           <div class="buttons-container">
             <a class="menu-button lg" href="#data">Data</a>
             <a class="menu-button lg" href="#carousel">Carousel</a>
-            <a class="menu-button lg" href="#carousel">Footer</a>
+            <a class="menu-button lg" href="#footer">Footer</a>
             <a class="burger menu-button flex-center sm" href="#" ><i class="fa fa-bars" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -40,7 +40,7 @@
 
       <section class="container">
         <div class="hero">
-          
+
         </div>
       </section>
       
@@ -51,10 +51,22 @@
           </button>
           <div class="imgs-container">
             <div class="imgs-scroller">
-              <div class="image" style="background-image: url(./assets/1.jpg)"></div>
-              <div class="image" style="background-image: url(./assets/2.jpg)"></div>
-              <div class="image" style="background-image: url(./assets/3.jpg)"></div>
-              <div class="image" style="background-image: url(./assets/4.jpg)"></div>
+              <div class="image" style="background-image: url(./assets/1.jpg)">
+                <div class="overlay-img"></div>
+                <div class="text-hero">Carpe</div>
+              </div>
+              <div class="image" style="background-image: url(./assets/2.jpg)">
+                <div class="overlay-img"></div>
+                <div class="text-hero">Diem</div>
+              </div>
+              <div class="image" style="background-image: url(./assets/3.jpg)">
+                <div class="overlay-img"></div>
+                <div class="text-hero">Vita</div>
+              </div>
+              <div class="image" style="background-image: url(./assets/4.jpg)">
+                <div class="overlay-img"></div>
+                <div class="text-hero">Brevis</div>
+              </div>
             </div>
             <div class="overlay"></div>
           </div>
@@ -70,10 +82,10 @@
         <div class="cards-container"></div>
         <div class="paginator padding">
           <div class="flex-center">
-            <div class="paginator-arrow arrow-left"> <i class="fa fa-chevron-left mr-1"></i></div>
+            <div class="paginator-arrow arrow-left"> <i class="fa fa-chevron-left"></i></div>
             <div class="indeces-container">
             </div>
-            <div class="paginator-arrow arrow-right"> <i class="fa fa-chevron-right ml-1"></i></div>
+            <div class="paginator-arrow arrow-right"> <i class="fa fa-chevron-right"></i></div>
           </div>
           <div class="select-pagination"> 
             <select name="items-page" id="items-page">
@@ -88,13 +100,24 @@
           <div class="results">--</div>
         </div>
       </section>
-      <footer>
-        <div>
-          <p>&copy; 2023 Salvatore Butera. All rights reserved.</p>
+      <footer id="footer">
+        <div class="container flex-center">
+          <div>
+            <p>&copy; 2023 Salvatore Butera for Applied</p>
+            <div><a href="#">Home</a></div>
+            <div><a href="#carousel">Carousel</a></div>
+            <div><a href="#data">Data</a></div>
+            <div><a href="#">Contact</a></div>
+          <div class="contact-info">
+            <p>Contact Us:</p>
+            <p>Email: info@example.com</p>
+            <p>Phone: +1 123-456-7890</p>
+          </div>
+          </div>
         </div>
       </footer>
-    </div>
 
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
