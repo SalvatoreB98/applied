@@ -9,4 +9,4 @@ Salvatore Butera
 
 ### Dettagli
 
-Si possono incontrare delle inconsistenze del codice come l'utilizzo di OOP e Functional Programming che sono state utilizzate per illustrare diverse soluzioni a problemi differenti
+Si possono incontrare delle inconsistenze del codice come l'utilizzo in contemporanea di vari tipi di strutture che sono state utilizzate per illustrare diverse soluzioni a problemi differenti
