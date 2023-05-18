@@ -66,6 +66,10 @@ footer a:hover{
 .page-index.primary:hover{
     transform: scale(1);
 }
+navbar{
+    transition: all 0.3s cubic-bezier(.8,.01,.81,1.11);
+}
+
  /** KEYFRAMES */
 @keyframes bounce {
     0% {
