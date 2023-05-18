@@ -24,13 +24,17 @@ window.addEventListener("load",()=>{
     }
 
     function handleScroll() {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (currentScroll > prevScroll && currentScroll > 100) {
-            navbar.style.height = '0px';
-            navbar.style.overflow = 'hidden'
-        } else if (currentScroll < prevScroll ) {
-            navbar.style.height = '80px';
+        if(!isMenuOpen){
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > prevScroll && currentScroll > 100) {
+                navbar.style.height = '0px';
+                navbar.style.overflow = 'hidden'
+            } else if (currentScroll < prevScroll ) {
+                navbar.style.height = '80px';
+            }
+            prevScroll = currentScroll;
+        } else {
+            navbar.style.height = '80px'
         }
-        prevScroll = currentScroll;
     }
 })
